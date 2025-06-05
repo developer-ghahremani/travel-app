@@ -9,6 +9,10 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@progress/kendo-react-buttons": "^11.1.0",
+    "@progress/kendo-react-common": "^11.1.0",
+    "@progress/kendo-react-layout": "^11.1.0",
+    "@progress/kendo-theme-default": "^11.0.2",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
     "isbot": "^5.1.27",
