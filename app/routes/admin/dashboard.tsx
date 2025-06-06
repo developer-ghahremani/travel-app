@@ -1,11 +1,7 @@
 type Props = {};
 
 const AdminDashboard = (props: Props) => {
-  return (
-    <div>
-      <div className="w-4 h-60 bg-red-500"></div>
-    </div>
-  );
+  return <div>This is the admin dashboard under constructions ;)</div>;
 };
 
 export default AdminDashboard;

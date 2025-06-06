@@ -1,13 +1,6 @@
 import { Drawer, DrawerContent, DrawerNavigation } from "@progress/kendo-react-layout";
 import React, { useState } from "react";
-import {
-  inboxIcon,
-  calendarIcon,
-  heartIcon,
-  linkIcon,
-  bellIcon,
-  menuIcon,
-} from "@progress/kendo-svg-icons";
+import { inboxIcon, connectorIcon } from "@progress/kendo-svg-icons";
 import { Button } from "@progress/kendo-react-buttons";
 
 type Props = {};
@@ -20,12 +13,15 @@ const AdminSidebar = (props: Props) => {
 
   return (
     <Drawer
-      // mini
+      mini
       position="start"
       mode="push"
       expanded={isExpanded}
       onOverlayClick={handleClick}
-      items={[{ text: "residam", svgIcon: inboxIcon }]}>
+      items={[
+        { text: "Home", svgIcon: inboxIcon },
+        { text: "Settings", svgIcon: connectorIcon },
+      ]}>
       <DrawerContent>
         <Button onClick={() => handleClick()}>Toggle the drawer state</Button>
       </DrawerContent>
