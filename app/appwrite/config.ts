@@ -5,6 +5,7 @@ const appWriteConfig = {
   projectId: import.meta.env.VITE_APPWRITE_PROJECT_ID,
   databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
   userCollection: import.meta.env.VITE_APPWRITE_USER_COLLECTION,
+  tripCollection: import.meta.env.VITE_APPWRITE_TRIP_COLLECTION,
 };
 
 const appWriteClient = new Client()
