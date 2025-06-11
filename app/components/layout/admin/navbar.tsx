@@ -7,6 +7,7 @@ import {
 } from "@progress/kendo-svg-icons";
 import { useState } from "react";
 import { useLoaderData } from "react-router";
+import { appWriteAccount } from "~/appwrite/config";
 import type { UserModel } from "~/models/user.model";
 
 type Props = { isSidebarOpen: boolean; toggleSidebar: () => void };
@@ -32,7 +33,9 @@ const UserSection = () => {
     setIsExpanded((s) => !s);
   };
 
-  function handleLogout(): void {}
+  const handleLogout = async () => {
+    await appWriteAccount.deleteSession("current");
+  };
 
   return (
     <div

@@ -2,7 +2,7 @@ import { GridColumn as Column, Grid, type GridCustomCellProps } from "@progress/
 import { getUsers } from "~/appwrite/utils";
 import type { Route } from "./+types/users";
 
-export async function loader(params: Route.LoaderArgs) {
+export async function clientLoader(params: Route.LoaderArgs) {
   try {
     const { documents: users, total } = await getUsers();
     return { users, total };

@@ -1,14 +1,14 @@
-import { toast } from "react-toastify";
 import { Button } from "@progress/kendo-react-buttons";
 import { SvgIcon } from "@progress/kendo-react-common";
 import { DropDownList, type ListItemProps } from "@progress/kendo-react-dropdowns";
+import { NumericTextBox } from "@progress/kendo-react-inputs";
 import { plusIcon } from "@progress/kendo-svg-icons";
 import { Formik, type FormikHelpers } from "formik";
-import type { Route } from "./+types/add";
 import { useNavigate } from "react-router";
-import { NumericTextBox } from "@progress/kendo-react-inputs";
-import { appWriteConfig, appWriteDatabase } from "~/appwrite/config";
-import { ID } from "appwrite";
+import { toast } from "react-toastify";
+import { number, object, string } from "yup";
+import type { Route } from "./+types/add";
+import { pageNames } from "~/utils/pagenames";
 
 interface TripInfo {
   country: string;
@@ -90,7 +90,7 @@ const AddTrip = (props: Route.ComponentProps) => {
   const navigate = useNavigate();
   const handleSubmit = async (values: TripInfo, formikHelpers: FormikHelpers<TripInfo>) => {
     try {
-      const response = await fetch("/admin/api/create-trip", {
+      await fetch("/admin/api/create-trip", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -104,8 +104,7 @@ const AddTrip = (props: Route.ComponentProps) => {
         }),
       });
 
-      console.log(response, "ID");
-      toast("CREATED IN DB", { type: "success" });
+      navigate(pageNames.admin.trips.list);
     } catch (error) {
       console.log(error);
     }
@@ -132,8 +131,16 @@ const AddTrip = (props: Route.ComponentProps) => {
           budgetEstimate: "",
           numberOfDays: 6,
         }}
+        validationSchema={object({
+          country: string().required("Country is required"),
+          groupType: string().required("Group type is required."),
+          travelStyle: string().required("Travel style is required."),
+          interest: string().required("Interest is required."),
+          budgetEstimate: string().required("Budget is required."),
+          numberOfDays: number().required("Days is required."),
+        })}
         onSubmit={handleSubmit}>
-        {({ setFieldValue, values, handleSubmit }) => (
+        {({ setFieldValue, values, handleSubmit, errors }) => (
           <form
             className="lg:w-[70%] lg:mx-auto border border-gray-200 p-4 mt-4 rounded-lg "
             onSubmit={handleSubmit}>
@@ -144,18 +151,17 @@ const AddTrip = (props: Route.ComponentProps) => {
                 className="!mt-2"
                 data={props.loaderData}
                 itemRender={({}, item: ListItemProps) => (
-                  <div className="flex items-center gap-2 mt-2 mx-1">
+                  <div
+                    className="flex items-center gap-2 mt-2 mx-1 cursor-pointer"
+                    onClick={() => setFieldValue("country", item.dataItem.name)}>
                     <img
                       className="rounded-full"
                       src={`https://flagsapi.com/${item.dataItem.flag}/shiny/32.png`}></img>
-                    <p
-                      className="cursor-pointer"
-                      onClick={() => setFieldValue("country", item.dataItem.name)}>
-                      {item.dataItem.name}
-                    </p>
+                    <p>{item.dataItem.name}</p>
                   </div>
                 )}
               />
+              {errors.country && <p className="text-red-700 text-xs">{errors.country}</p>}
             </>
             <div className="mt-2">
               <p>The number of day</p>
@@ -168,6 +174,7 @@ const AddTrip = (props: Route.ComponentProps) => {
                 fillMode="solid"
                 placeholder="please enter the number of day"
               />
+              {errors.numberOfDays && <p className="text-red-700 text-xs">{errors.numberOfDays}</p>}
             </div>
 
             {selectors.map((item) => (
@@ -181,6 +188,11 @@ const AddTrip = (props: Route.ComponentProps) => {
                   className="!mt-1"
                   data={item.options}
                 />
+                {errors?.[item.formKey as keyof TripInfo] && (
+                  <p className="text-red-700 text-xs">
+                    {errors?.[item.formKey as keyof TripInfo] || ""}
+                  </p>
+                )}
               </div>
             ))}
 

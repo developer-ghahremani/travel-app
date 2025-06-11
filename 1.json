@@ -1,204 +1,113 @@
 {
-  "response": {
-    "name": "Barcelona & Madrid: A Spanish Adventure",
-    "description": "Explore the vibrant cities of Barcelona and Madrid on this 10-day adventure. Discover the architectural wonders of Gaudi, indulge in delicious tapas, witness passionate flamenco performances, and immerse yourself in the rich culture and history of Spain. This trip offers a perfect blend of sightseeing, culinary delights, and cultural experiences.",
-    "estimatedPrice": "$1800",
-    "duration": 10,
-    "budget": "average",
-    "travelStyle": "",
-    "country": "Spain",
-    "interests": [],
-    "groupType": "",
-    "bestTimeToVisit": [
-      "🌸 Spring (March to May): Pleasant weather for sightseeing, fewer crowds than summer.",
-      "☀️ Summer (June to August): Warm and sunny, perfect for beaches and outdoor activities, but expect crowds and higher prices.",
-      "🍁 Autumn (September to November): Mild temperatures, beautiful fall foliage, and fewer tourists.",
-      "❄️ Winter (December to February): Cool temperatures, Christmas markets, and lower prices."
-    ],
-    "weatherInfo": [
-      "☀️ Summer: 25-35°C (77-95°F)",
-      "🌦️ Autumn: 15-25°C (59-77°F)",
-      "🌧️ Winter: 5-15°C (41-59°F)",
-      "☀️ Spring: 15-25°C (59-77°F)"
-    ],
-    "location": {
-      "city": "Barcelona",
-      "coordinates": [41.3851, 2.1734],
-      "openStreetMap": "https://www.openstreetmap.org/#map=12/41.3851/2.1734"
+  "createdBy": "6841d7c7ce6067ce2a2e",
+  "name": "Latvian Luxury: Nature, Nightlife & Romance",
+  "description": "Experience Latvia's vibrant nightlife and stunning natural beauty with your loved one. This luxury itinerary balances outdoor adventures with sophisticated evenings, from Riga's bustling bar scene to Gauja National Park's serene landscapes. Enjoy gourmet meals, exclusive tours, and romantic moments throughout your Latvian escape.",
+  "estimatedPrice": 5800,
+  "duration": 6,
+  "budget": "Luxury",
+  "travelStyle": "Nature & Outdoors",
+  "country": "Latvia",
+  "groupType": "Couple",
+  "bestTimeToVisit": [
+    "🌸 Spring (April to May): Blooming gardens and pleasant weather for outdoor activities.",
+    "☀️ Summer (June to August): Warmest temperatures, perfect for swimming and enjoying nightlife.",
+    "🍁 Autumn (September to October): Colorful foliage in Gauja National Park and cozy evenings in Riga.",
+    "❄️ Winter (November to March): Christmas markets and winter sports opportunities."
+  ],
+  "weatherInfo": [
+    "☀️ Summer: 15-25°C (59-77°F)",
+    "🌦️ Spring: 5-15°C (41-59°F)",
+    "🌧️ Autumn: 5-10°C (41-50°F)",
+    "❄️ Winter: -5-5°C (23-41°F)"
+  ],
+  "interests": "Nightlife & Bars",
+  "tripImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1519214605650-76a613ee3245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHwxfHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
     },
-    "itinerary": [
-      {
-        "day": 1,
-        "location": "Barcelona",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🏰 Visit the Sagrada Familia, Antoni Gaudí's iconic basilica, and explore its stunning architecture."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🌳 Stroll through Park Güell, another Gaudí masterpiece, and enjoy panoramic views of the city."
-          },
-          {
-            "time": "Evening",
-            "description": "🍽️ Indulge in tapas and drinks in the Gothic Quarter, exploring the narrow streets and vibrant atmosphere."
-          }
-        ]
-      },
-      {
-        "day": 2,
-        "location": "Barcelona",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🚶 Explore Las Ramblas, Barcelona's famous pedestrian street, and visit La Boqueria Market for local delicacies."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🏖️ Relax on Barceloneta Beach and enjoy the Mediterranean sunshine or try some water sports."
-          },
-          {
-            "time": "Evening",
-            "description": "⚽ Catch a FC Barcelona match at Camp Nou (if in season) or take a stadium tour."
-          }
-        ]
-      },
-      {
-        "day": 3,
-        "location": "Barcelona",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🎨 Visit the Picasso Museum to admire the early works of the renowned artist."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🏠 Explore Casa Batlló and Casa Milà (La Pedrera), two more architectural gems by Gaudí."
-          },
-          {
-            "time": "Evening",
-            "description": "💃 Enjoy a traditional Flamenco show in the El Raval district."
-          }
-        ]
-      },
-      {
-        "day": 4,
-        "location": "Travel Day - Barcelona to Madrid",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🚄 Take a high-speed train from Barcelona to Madrid (approx. 2.5 - 3 hours)."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🧳 Check into your hotel in Madrid and take some time to relax."
-          },
-          {
-            "time": "Evening",
-            "description": "🚶 Stroll through the Plaza Mayor, the heart of Madrid, and enjoy dinner at a local restaurant."
-          }
-        ]
-      },
-      {
-        "day": 5,
-        "location": "Madrid",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🖼️ Visit the Prado Museum, one of the world's finest art museums, and admire masterpieces by Spanish masters like Goya and Velázquez."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🌳 Explore Retiro Park, Madrid's largest park, rent a boat on the lake, or relax in the gardens."
-          },
-          {
-            "time": "Evening",
-            "description": "🍽️ Experience a traditional Spanish dinner at Sobrino de Botín, the world's oldest restaurant."
-          }
-        ]
-      },
-      {
-        "day": 6,
-        "location": "Madrid",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "👑 Visit the Royal Palace of Madrid, the official residence of the Spanish Royal Family."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🏺 Explore the Almudena Cathedral, located next to the Royal Palace."
-          },
-          {
-            "time": "Evening",
-            "description": "🛍️ Enjoy shopping along Gran Vía, Madrid's bustling commercial street."
-          }
-        ]
-      },
-      {
-        "day": 7,
-        "location": "Madrid",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "⚽ Take a tour of the Santiago Bernabéu Stadium, home of Real Madrid (for football fans)."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🎨 Visit the Reina Sofía Museum to see modern and contemporary art, including Picasso's Guernica."
-          },
-          {
-            "time": "Evening",
-            "description": "🍸 Enjoy cocktails and tapas in the La Latina neighborhood."
-          }
-        ]
-      },
-      {
-        "day": 8,
-        "location": "Day Trip to Toledo",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🚌 Take a day trip to Toledo, a historic city located a short distance from Madrid."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🏰 Explore the Toledo Cathedral, the Alcázar of Toledo, and the Synagogue of El Tránsito."
-          },
-          {
-            "time": "Evening",
-            "description": "🚶 Enjoy a leisurely walk through the charming streets of Toledo before returning to Madrid."
-          }
-        ]
-      },
-      {
-        "day": 9,
-        "location": "Madrid",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "🍫 Indulge in churros and chocolate at Chocolatería San Ginés, a Madrid institution."
-          },
-          {
-            "time": "Afternoon",
-            "description": "🎭 Visit the Teatro Real, Madrid's opera house, and take a tour of the building."
-          },
-          {
-            "time": "Evening",
-            "description": "💃 Enjoy a final night in Madrid with a delicious dinner and maybe another Flamenco show."
-          }
-        ]
-      },
-      {
-        "day": 10,
-        "location": "Departure",
-        "activities": [
-          {
-            "time": "Morning",
-            "description": "✈️ Depart from Madrid."
-          }
-        ]
-      }
-    ]
+    {
+      "url": "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHwyfHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1598495496118-f8763b94bde5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHwzfHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1577450775949-58ec8d02cad9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw0fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1600164318544-79e55da1ac8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw1fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1542698281-c3294360b7db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw2fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1574357265250-10c88f63ebfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw3fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1586015944811-393c1e7440f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw4fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1578736641330-3155e606cd40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHw5fHxOaWdodGxpZmUlMjB8ZW58MHx8fHwxNzQ5NTExOTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1590217856690-b3afe4a55a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjIwMTN8MHwxfHNlYXJjaHwxMHx8TmlnaHRsaWZlJTIwfGVufDB8fHx8MTc0OTUxMTk0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "name": "Latvia",
+      "description": "Latvia Nightlife & Bars"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "location": "Riga",
+      "activities": []
+    },
+    {
+      "day": 2,
+      "location": "Riga",
+      "activities": []
+    },
+    {
+      "day": 3,
+      "location": "Gauja National Park",
+      "activities": []
+    },
+    {
+      "day": 4,
+      "location": "Gauja National Park",
+      "activities": []
+    },
+    {
+      "day": 5,
+      "location": "Jurmala",
+      "activities": []
+    },
+    {
+      "day": 6,
+      "location": "Riga",
+      "activities": []
+    }
+  ],
+  "location": {
+    "city": "Riga",
+    "openStreetMap": "https://www.openstreetmap.org/relation/128440",
+    "coordinates": [56.9496, 24.1052]
   }
 }

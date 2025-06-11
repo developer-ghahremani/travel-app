@@ -12,6 +12,7 @@ export default [
       ...prefix("trips", [
         route("list", "./routes/admin/trips/list.tsx"),
         route("add", "./routes/admin/trips/add.tsx"),
+        route("details/:tripId", "./routes/admin/trips/detail.tsx"),
       ]),
     ])
   ),

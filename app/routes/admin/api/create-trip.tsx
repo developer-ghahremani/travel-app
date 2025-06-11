@@ -1,9 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
-import { ID, Query } from "appwrite";
-import { data, type ActionFunctionArgs } from "react-router";
+import { ID } from "appwrite";
+import { data } from "react-router";
 import { appWriteConfig, appWriteDatabase } from "~/appwrite/config";
+import type { Route } from "./+types/create-trip";
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export async function action({ request }: Route.ActionArgs) {
   const { country, numberOfDays, travelStyle, interests, budget, groupType, userId } =
     await request.json();
   const ai = new GoogleGenAI({ apiKey: "AIzaSyDD8amojIdtqwmEd1TTl7ZXdR1A3dxywzI" });
@@ -81,7 +82,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     }
   );
   return data({ id: createdTrip.$id });
-};
+}
 
 export function parseMarkdownToJson(markdownText: string) {
   const regex = /```json\n([\s\S]+?)\n```/;
