@@ -4,11 +4,14 @@ import { DropDownList, type ListItemProps } from "@progress/kendo-react-dropdown
 import { NumericTextBox } from "@progress/kendo-react-inputs";
 import { plusIcon } from "@progress/kendo-svg-icons";
 import { Formik, type FormikHelpers } from "formik";
+import { useState } from "react";
+import { Loader } from "@progress/kendo-react-indicators";
 import { useNavigate } from "react-router";
-import { toast } from "react-toastify";
 import { number, object, string } from "yup";
-import type { Route } from "./+types/add";
+import { tripOptions } from "~/utils/constants";
 import { pageNames } from "~/utils/pagenames";
+import type { Route } from "./+types/add";
+import { toast } from "react-toastify";
 
 interface TripInfo {
   country: string;
@@ -18,46 +21,6 @@ interface TripInfo {
   budgetEstimate: string;
   numberOfDays: number;
 }
-const selectors = [
-  {
-    caption: "Group type",
-    formKey: "groupType",
-    options: ["Solo", "Couple", "Family", "Friends", "Business"],
-  },
-  {
-    caption: "Travel style",
-    formKey: "travelStyle",
-    options: [
-      "Relaxed",
-      "Luxury",
-      "Adventure",
-      "Cultural",
-      "Nature & Outdoors",
-      "City Exploration",
-    ],
-  },
-  {
-    caption: "Interest",
-    formKey: "interest",
-    options: [
-      "Food & Culinary",
-      "Historical Sites",
-      "Hiking & Nature Walks",
-      "Beaches & Water Activities",
-      "Museums & Art",
-      "Nightlife & Bars",
-      "Photography Spots",
-      "Shopping",
-      "Local Experiences",
-    ],
-  },
-  {
-    caption: "Budget estimate",
-    formKey: "budgetEstimate",
-    options: ["Budget", "Mid-range", "Luxury", "Premium"],
-  },
-];
-type Props = {};
 
 export const loader = async () => {
   const response = await fetch(
@@ -88,7 +51,10 @@ export const loader = async () => {
 
 const AddTrip = (props: Route.ComponentProps) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleSubmit = async (values: TripInfo, formikHelpers: FormikHelpers<TripInfo>) => {
+    setLoading(true);
     try {
       await fetch("/admin/api/create-trip", {
         method: "POST",
@@ -97,13 +63,13 @@ const AddTrip = (props: Route.ComponentProps) => {
           country: values.country,
           numberOfDays: values.numberOfDays,
           travelStyle: values.travelStyle,
-          interests: values.interest,
+          interest: values.interest,
           budget: values.budgetEstimate,
           groupType: values.groupType,
           userId: "100256",
         }),
       });
-
+      toast("Successfully create a new trip.", { type: "success" });
       navigate(pageNames.admin.trips.list);
     } catch (error) {
       console.log(error);
@@ -177,7 +143,7 @@ const AddTrip = (props: Route.ComponentProps) => {
               {errors.numberOfDays && <p className="text-red-700 text-xs">{errors.numberOfDays}</p>}
             </div>
 
-            {selectors.map((item) => (
+            {tripOptions.map((item) => (
               <div className="mt-2">
                 <p>{item.caption}</p>
                 <DropDownList
@@ -196,8 +162,8 @@ const AddTrip = (props: Route.ComponentProps) => {
               </div>
             ))}
 
-            <Button className="mt-2 w-full py-2" themeColor="info" type="submit">
-              Create A trip
+            <Button disabled={loading} className="mt-2 w-full py-2" themeColor="info" type="submit">
+              {!loading ? "Create A trip" : <Loader size="small" type="converging-spinner" />}
             </Button>
           </form>
         )}

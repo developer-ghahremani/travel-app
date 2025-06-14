@@ -10,7 +10,7 @@ export interface TripModel {
   groupType: string;
   bestTimeToVisit: string[];
   weatherInfo: string[];
-  interests: string;
+  interest: string;
   tripImages: TripImage[];
   itinerary: Itinerary[];
   location: Location;

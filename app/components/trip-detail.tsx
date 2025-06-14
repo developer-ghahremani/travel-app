@@ -37,9 +37,14 @@ const TripDetailComponent = (props: Props) => {
           />
         </div>
       </div>
+      <div className="grid lg:grid-cols-4 mt-2 gap-2 grid-cols-1">
+        {[...props.tripDetail.tripImages].slice(3, 10).map((item) => (
+          <img alt="" src={item.url} className="h-[200px] w-full object-cover" />
+        ))}
+      </div>
       <div className="flex gap-3 mt-4">
         <p className="bg-red-200 text-red-800 px-4 rounded-2xl">{props.tripDetail.travelStyle}</p>
-        <p className="bg-blue-200 text-blue-800 px-4 rounded-2xl">{props.tripDetail.interests}</p>
+        <p className="bg-blue-200 text-blue-800 px-4 rounded-2xl">{props.tripDetail.interest}</p>
         <p className="bg-green-200 text-green-800 px-4 rounded-2xl">{props.tripDetail.groupType}</p>
       </div>
       <div className="flex justify-between items-center my-4">
@@ -48,7 +53,7 @@ const TripDetailComponent = (props: Props) => {
             {props.tripDetail.duration + `-Day ${props.tripDetail.country} Adventure`}
           </h2>
           <p>
-            {`${props.tripDetail.travelStyle}, ${props.tripDetail.interests}, ${props.tripDetail.groupType}, ${props.tripDetail.budget}`}
+            {`${props.tripDetail.travelStyle}, ${props.tripDetail.interest}, ${props.tripDetail.groupType}, ${props.tripDetail.budget}`}
           </p>
         </div>
         <p className="text-xl font-semibold">{"$" + props.tripDetail.estimatedPrice}</p>

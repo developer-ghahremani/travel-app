@@ -9,6 +9,8 @@ import type { Route } from "./+types/list";
 
 import lodash from "lodash";
 import TripItem from "~/components/trip-item";
+import Pagination from "~/components/pagination";
+import { stringifyUrl } from "node_modules/query-string/base";
 
 export const loader = async ({ request }: Route.LoaderArgs) => {
   const page = qs.parse(request.url.split("?")?.[1])?.page || 1;
@@ -31,11 +33,7 @@ const TripList = (props: Route.ComponentProps) => {
   };
 
   const handleNavigate = (item: number) => {
-    window.open(`${pageNames.admin.trips.list}?page=${item}`, "_blank");
-  };
-
-  const handleDetail = (id: string) => {
-    navigate(pageNames.admin.trips.details + id);
+    navigate(stringifyUrl({ url: pageNames.admin.trips.list, query: { page: item } }));
   };
 
   return (
@@ -47,35 +45,18 @@ const TripList = (props: Route.ComponentProps) => {
         </div>
         <Button onClick={() => handleCreateTripPage()}>Create a new trip</Button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 my-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 my-4 min-h-[500px]">
         {props.loaderData.trips.map((item) => (
-          <TripItem onClick={() => handleDetail(item.$id)} trip={item} />
+          <TripItem trip={item} />
         ))}
       </div>
-      <div className="flex justify-between items-center">
-        <p
-          onClick={() => +page !== 1 && handleNavigate(+page - 1)}
-          className={`border rounded-lg border-gray-300 px-3 py-1 ${
-            +page === 1 ? "" : "cursor-pointer"
-          }`}>
-          Previous
-        </p>
-        <div className="flex gap-2">
-          {lodash.range(1, Math.ceil(props.loaderData.total / 8) + 1).map((item: number) => (
-            <p
-              onClick={() => handleNavigate(+page + 1)}
-              className="border rounded-lg border-gray-300 px-3 py-1 cursor-pointer"
-              key={item}>
-              {item}
-            </p>
-          ))}
-        </div>
-        <p
-          onClick={() => handleNavigate(+page + 1)}
-          className="border rounded-lg border-gray-300 px-3 py-1 cursor-pointer">
-          Next
-        </p>
-      </div>
+
+      <Pagination
+        responseSize={props.loaderData.trips.length}
+        page={+page}
+        total={props.loaderData.total}
+        onChange={(page) => handleNavigate(page)}
+      />
     </div>
   );
 };

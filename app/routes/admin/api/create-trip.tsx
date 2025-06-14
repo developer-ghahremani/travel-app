@@ -5,12 +5,11 @@ import { appWriteConfig, appWriteDatabase } from "~/appwrite/config";
 import type { Route } from "./+types/create-trip";
 
 export async function action({ request }: Route.ActionArgs) {
-  const { country, numberOfDays, travelStyle, interests, budget, groupType, userId } =
-    await request.json();
+  const { country, numberOfDays, travelStyle, interest, budget, groupType } = await request.json();
   const ai = new GoogleGenAI({ apiKey: "AIzaSyDD8amojIdtqwmEd1TTl7ZXdR1A3dxywzI" });
   const prompt = `Generate a ${numberOfDays}-day travel itinerary for ${country} based on the following user information:
           Budget: '${budget}'
-          Interests: '${interests}'
+          Interests: '${interest}'
           TravelStyle: '${travelStyle}'
           GroupType: '${groupType}'
           Return the itinerary and lowest estimated price in a clean, non-markdown JSON format with the following structure:
@@ -22,7 +21,7 @@ export async function action({ request }: Route.ActionArgs) {
           "budget": "${budget}",
           "travelStyle": "${travelStyle}",
           "country": "${country}",
-          "interests": ${interests},
+          "interest": ${interest},
           "groupType": "${groupType}",
           "bestTimeToVisit": [
             '🌸 Season (from month to month): reason to visit',
@@ -60,7 +59,7 @@ export async function action({ request }: Route.ActionArgs) {
   });
 
   const imageResponse = await fetch(
-    `https://api.unsplash.com/search/photos?query=${interests} in ${country}&client_id=VuTMU6UrpftrDevCbPxTHKJ6z4nPn5fEJEGw57F_b3A`
+    `https://api.unsplash.com/search/photos?query=${interest} in ${country}&client_id=VuTMU6UrpftrDevCbPxTHKJ6z4nPn5fEJEGw57F_b3A`
   );
   const imageUrls = (await imageResponse.json()).results.map(
     (result: any) => result.urls?.regular || null
@@ -76,7 +75,7 @@ export async function action({ request }: Route.ActionArgs) {
       tripImages: imageUrls.map((item: string) => ({
         name: country,
         url: item,
-        description: country + " " + interests,
+        description: country + " " + interest,
       })),
       createdBy: "6841d7c7ce6067ce2a2e",
     }

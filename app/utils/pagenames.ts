@@ -4,4 +4,5 @@ export const pageNames = {
     users: "/admin/users",
     trips: { list: "/admin/trips/list", add: "/admin/trips/add", details: "/admin/trips/details/" },
   },
+  trips: { list: "trip-list", details: "/trip-detail/" },
 };

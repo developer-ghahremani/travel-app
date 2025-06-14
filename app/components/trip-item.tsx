@@ -1,12 +1,20 @@
 import type { Models } from "appwrite";
 import type { TripModel } from "~/models/trip.model";
+import { pageNames } from "~/utils/pagenames";
 
-type Props = { trip: TripModel & Models.Document; onClick: () => void };
+type Props = { trip: TripModel & Models.Document; navigateTo?: "admin-side" | "client-side" };
 
-const TripItem = ({ trip, onClick }: Props) => {
+const TripItem = ({ trip, navigateTo = "admin-side" }: Props) => {
   return (
     <div
-      onClick={() => onClick()}
+      onClick={() =>
+        window.open(
+          navigateTo === "admin-side"
+            ? pageNames.admin.trips.details + trip.$id
+            : pageNames.trips.details + trip.$id,
+          "_blank"
+        )
+      }
       key={trip.$id}
       className="border border-gray-200 rounded-2xl hover:shadow duration-200 cursor-pointer h-min">
       <div className="h-40 relative">

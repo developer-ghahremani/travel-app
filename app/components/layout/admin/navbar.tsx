@@ -6,9 +6,10 @@ import {
   userOutlineIcon,
 } from "@progress/kendo-svg-icons";
 import { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { appWriteAccount } from "~/appwrite/config";
 import type { UserModel } from "~/models/user.model";
+import { pageNames } from "~/utils/pagenames";
 
 type Props = { isSidebarOpen: boolean; toggleSidebar: () => void };
 
@@ -26,6 +27,7 @@ const AdminNavbar = (props: Props) => {
 };
 
 const UserSection = () => {
+  const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const loadedData = useLoaderData<{ user: UserModel }>();
 
@@ -35,6 +37,7 @@ const UserSection = () => {
 
   const handleLogout = async () => {
     await appWriteAccount.deleteSession("current");
+    navigate("/", { replace: true });
   };
 
   return (

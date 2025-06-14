@@ -1,11 +1,10 @@
-import type { Route } from "./+types/detail";
 import { Query, type Models } from "appwrite";
-import { pageNames } from "~/utils/pagenames";
+import { type LoaderFunctionArgs } from "react-router";
+import { appWriteConfig, appWriteDatabase } from "~/appwrite/config";
+import TripDetailComponent from "~/components/trip-detail";
 import TripItem from "~/components/trip-item";
 import type { TripModel } from "~/models/trip.model";
-import TripDetailComponent from "~/components/trip-detail";
-import { useNavigate, type LoaderFunctionArgs } from "react-router";
-import { appWriteConfig, appWriteDatabase } from "~/appwrite/config";
+import type { Route } from "./+types/trip-detail";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const trip = await appWriteDatabase.getDocument<Models.Document & TripModel>(
@@ -21,11 +20,9 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   return { trip, tripSuggestions };
 };
 
-const TripDetailPage = (props: Route.ComponentProps) => {
-  const navigate = useNavigate();
-
+const ClientTripDetailPage = (props: Route.ComponentProps) => {
   return (
-    <div className="mx-auto lg:w-[60%]">
+    <div className="mt-8">
       <TripDetailComponent tripDetail={props.loaderData.trip} />
 
       {props.loaderData.tripSuggestions.documents.length > 0 && (
@@ -42,4 +39,4 @@ const TripDetailPage = (props: Route.ComponentProps) => {
   );
 };
 
-export default TripDetailPage;
+export default ClientTripDetailPage;
