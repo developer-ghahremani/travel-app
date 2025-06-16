@@ -14,7 +14,7 @@ const AdminAuth = (props: Props) => {
       />
       <div className=" w-full h-screen z-20 absolute bg-gradient-to-tr from-white"></div>
       <div className="flex items-center justify-center h-screen absolute  top-0 left-0 z-30 w-full">
-        <div className="shadow-lg w-[30%] p-4 rounded-xl bg-white">
+        <div className="shadow-lg mx-4 md:w-[30%] p-4 rounded-xl bg-white">
           <div className="flex items-center gap-2 justify-center">
             <img src="/public/assets/icons/logo.svg" alt="" />
             <h1>Travel app</h1>
