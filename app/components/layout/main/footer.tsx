@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router";
 
-type Props = {};
-
-const MainFooter = (props: Props) => {
+const MainFooter = () => {
   const navigate = useNavigate();
   return (
     <div className="mt-20">
       <div className="py-8 main-container">
-        <div className="flex justify-between">
+        <div className="flex md:flex-row md:justify-between flex-col items-center">
           <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate("/", { replace: true })}>

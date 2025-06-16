@@ -9,8 +9,8 @@ const MainNavbar = (props: Props) => {
   const navigate = useNavigate();
   return (
     <div className="">
-      <div className="py-3 main-container">
-        <div className="flex justify-between">
+      <div className="main-container  py-3">
+        <div className="flex justify-between ">
           <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate("/", { replace: true })}>

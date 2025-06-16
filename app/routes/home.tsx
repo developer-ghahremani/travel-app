@@ -30,30 +30,28 @@ const Home = (props: Route.ComponentProps) => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="relative h-screen">
+      <div className="relative h-[40rem] md:h-screen">
         <img
           src="assets/images/hero-img.png"
-          className="h-screen w-full object-cover absolute"
+          className="h-[40rem] md:h-screen w-full object-cover absolute"
           alt=""
         />
-        <div className="h-screen w-full absolute bg-gradient-to-br z-10 from-white " />
-        <div className="absolute w-full mx-2 md:!w-[64%] md:mx-[18%] top-[40px] z-20">
-          <div className="flex justify-between items-center  px-4 py-1 ">
-            <div className="flex items-center gap-2">
+        <div className="h-[40rem] md:h-screen w-full absolute bg-gradient-to-br z-10 from-white " />
+        <div className="absolute w-full md:!w-[64%] md:mx-[18%] top-[40px] z-20">
+          <div className="flex justify-between mx-4 items-center py-1">
+            <div className="flex items-center gap-2 ">
               <img src="assets/icons/logo.svg" alt="" />
               <p className="text-2xl font-semibold">Tourvista</p>
               <p></p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex gap-2 items-center">
-                <img
-                  alt=""
-                  src="assets/images/david.webp"
-                  className="object-cover w-10 h-10 rounded-full"
-                />
-                <p>Reza Ghahremani</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <img
+                alt=""
+                src="assets/images/david.webp"
+                className="object-cover w-10 h-10 rounded-full"
+              />
+              <p>Reza Ghahremani</p>
               <SvgIcon
                 icon={dashboardOutlineIcon}
                 className="cursor-pointer"
@@ -62,7 +60,7 @@ const Home = (props: Route.ComponentProps) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 mt-[100px] w-[28rem]">
+          <div className="flex flex-col gap-2 mx-4 mt-[100px] w-[28rem]">
             <h1 className="text-[4rem] font-bold">Plan your trip with ease</h1>
             <p>
               Customize your trip with itinerary in minutes-- pick your destination, set your
@@ -72,8 +70,8 @@ const Home = (props: Route.ComponentProps) => {
           </div>
         </div>
       </div>
-      <div className="w-full md:!w-[64%] mx-auto py-4">
-        <div className="flex items-center justify-between">
+      <div className="w-full md:!w-[64%] mx-auto p-4">
+        <div className="flex items-center lg:justify-between flex-col lg:flex-row">
           <div className="flex flex-col">
             <p className="text-3xl font-bold">Featured Travel Destinations</p>
             <p className="mt-2">
